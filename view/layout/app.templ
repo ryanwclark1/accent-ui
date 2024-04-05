@@ -1,0 +1,28 @@
+package layout
+
+import (
+  "accent-ui/view/ui"
+)
+
+templ App(nav bool) {
+  <!DOCTYPE html>
+  <html lang="en" class="h-full bg-white">
+    <head>
+      <meta charset="UTF-8"></meta>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
+      <title>Accent</title>
+      <link rel="stylesheet" href="/public/styles.css"></link>
+      <meta name="htmx-config" content={ `{"globalViewTransitions":true}` }/>
+    </head>
+    <body hx-ext="morph, json-enc">
+      if nav {
+        @ui.Navigation()
+      }
+      { children... }
+      <script src="https://unpkg.com/htmx.org@1.9.11"></script>
+      <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.13.7/dist/cdn.min.js"></script>
+      <script src="https://cdnjs.clouflare.com/ajax/libs/font-awesome/6.5.2/js/all.min.js"></script>
+    </body>
+  </html>
+
+}
