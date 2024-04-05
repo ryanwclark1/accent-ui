@@ -16,8 +16,8 @@ func getAuthenticatedUser(r *http.Request) types.AuthenticatedUser {
 	return user
 }
 
-// MakeHandler is a helper function that wraps a handler function and logs any errors
-func MakeHandler(h func(w http.ResponseWriter, r *http.Request) error) http.HandlerFunc {
+// Make is a helper function that wraps a handler function and logs any errors
+func Make(h func(w http.ResponseWriter, r *http.Request) error) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		if err := h(w, r); err != nil {
 			slog.Error("internal server error", "err", err, "path", r.URL.Path)
