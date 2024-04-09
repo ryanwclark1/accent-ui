@@ -1,15 +1,18 @@
 package accentapi
 
-// import (
-// 	"os"
-// )
+import (
+	"os"
+	"accent-ui/pkg/restclient"
+)
 
-// var Client *accent.Client
+const BaseAuthURL = "https://api.accent.io/api/auth/0.1"
 
-// //
-// func Init() error {
-// 	accentHost := os.Getenv("ACCENT_HOST")
-// 	accentToken := os.Getenv("ACCENT_TOKEN")
-// 	Client = accent.NewClient(accentHost, accentToken)
-// 	return nil
-// }
+var Client *restclient.Client
+
+//
+func Init() error {
+	accentHost := os.Getenv("ACCENT_HOST")
+	accentToken := os.Getenv("ACCENT_TOKEN")
+	Client = restclient.CreateClient(accentHost, accentToken)
+	return nil
+}

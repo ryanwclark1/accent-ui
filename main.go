@@ -2,7 +2,8 @@ package main
 
 import (
 	"accent-ui/handler"
-	// "accent-ui/pkg/accentapi"
+	"accent-ui/pkg/accentapi"
+
 	"embed"
 	"log"
 	"log/slog"
@@ -41,6 +42,6 @@ func initEverything() error {
 	if err := godotenv.Load(); err != nil {
 		return err
 	}
+	return accentapi.Init()
 	// return accentapi.Init()
-	return nil
 }
